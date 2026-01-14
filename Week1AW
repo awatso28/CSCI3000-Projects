@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+void swap_numbers(int* first, int* second);
+int square_number(int num);
+int main()
+{
+    //Pointer Pt1 Practice
+    int number_1 = 5;
+    int number_2 = 9;
+    int* pointer_1 = nullptr;
+    pointer_1 = &number_1;
+    cout << "Value of number_1: " << number_1 << endl;
+    cout << "Address of a (&a): " << &number_1 << endl;
+    cout << "Pointer ptr_a stores: " << pointer_1 << endl;
+    cout << "Value at address (*ptr_a): " << *pointer_1 << endl;
+    int* pointer_2 = nullptr;
+    pointer_2 = &number_2;
+    cout << "Value of number_2: " << number_2 << endl;
+    cout << "Address of b (&b): " << &number_2 << endl;
+    cout << "Pointer ptr_b stores: " << pointer_2 << endl;
+    cout << "Value at address (*ptr_a): " << *pointer_2 << endl;
+    cout << endl;
+    //Functions Pt2 Practice(swap the values of two items)
+    int first_number = 10;
+    int second_number = 20;
+    swap_numbers(&first_number, &second_number);
+    cout << "first_number = " << first_number << ", second_number = " << second_number << endl;
+    cout << endl;
+    //Functions Pt1 Practice(square number)
+    int number;
+    cout << "Enter an integer: ";
+    cin >> number;
+    int squared_value = square_number(number);
+    cout << number << " squared is: " << squared_value << endl;
+    cout << endl;
+    //For Loop Practice(Print 1...n)
+    int user_input;
+    cout << "Enter a number: ";
+    cin >> user_input;
+    for (int i = 1; i <= user_input; i++)
+    {
+        cout << i << " ";
+    }
+    return 0;
+}
+//Apart of Functions Pt2
+void swap_numbers(int* first, int* second)
+{
+    *first = 20;
+    *second = 10;
+}
+//Apart of Functions Pt1
+int square_number(int num)
+{
+    int result = num * num;
+    return result;
+}
