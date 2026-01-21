@@ -1,0 +1,93 @@
+#include <iostream>
+using namespace std;
+
+//Function Declarations for Problemm 14
+void input_marks(int student_marks[], int student_count);
+void display_marks(int student_marks[], int student_count);
+int total_marks(int student_marks[], int student_count);
+float average_marks(int student_marks[], int student_count);
+int count_passed(int student_marks[], int student_count);
+int highest_mark(int student_marks[], int student_count);
+int main()
+{
+    //Practice 14: Student Marks Management System
+    const int student_count = 5;
+    int student_marks[student_count];
+    int menu_choice = 0;
+
+    do
+    {
+        cout << "-----------Student Marks Menu-----------" << endl;
+        cout << "1. Display all marks" << endl;
+        cout << "2. Find total marks" << endl;
+        cout << "3. Find average marks" << endl;
+        cout << "4. Count passed students (pass mark = 40)" << endl;
+        cout << "5. Find highest mark" << endl;
+        cout << "6. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> menu_choice;
+
+        switch (menu_choice)
+        {
+            case 1:
+                display_marks(student_marks, student_count);
+                break;
+            case 2:
+                cout << "Total marks: " << total_marks(student_marks, student_count) << endl;
+                break;
+            case 3:
+                cout << "Average marks: " << average_marks(student_marks, student_count) << endl;
+                break;
+            case 4:
+                cout << "Passed Students: " << count_passed(student_marks, student_count) << endl;
+                break;
+            case 5:
+                cout << "Highest Mark: " << highest_mark(student_marks, student_count) << endl;
+                break;
+            case 6:
+                cout << "Goodbye" << endl;
+                break;
+            default:
+                cout << "Please enter a number 1- 6" << endl;
+        }
+    } while (menu_choice != 6);
+
+
+    return 0;
+}
+
+//Function Defintions for Problem 14
+void input_marks(int student_marks[], int student_count)
+{
+    cout << "Enter marks for " << student_count << " students: ";
+    for (int index = 0; index < student_count; index++)
+    {
+        cout << "Student " << (index + 1) << " mark: ";
+        cin >> student_marks[index];
+    }
+}
+
+void display_marks(int student_marks[], int student_count)
+{
+    
+}
+
+int total_marks(int student_marks[], int student_count)
+{
+    return 0;
+}
+
+float average_marks(int student_marks[], int student_count)
+{
+    return 0.0f;
+}
+
+int count_passed(int student_marks[], int student_count)
+{
+    return 0;
+}
+
+int highest_mark(int student_marks[], int student_count)
+{
+    return 0;
+}
