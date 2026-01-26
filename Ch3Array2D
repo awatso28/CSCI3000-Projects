@@ -7,11 +7,11 @@ using namespace std;
 //Ex2 function declaratin
 //void read_array(int marks[][max_col], int max_row);
 //P1 constants for array size
-const int max_row = 2;
-const int max_col = 3;
+//const int max_row = 2;
+//const int max_col = 3;
 //P1 Function declarations
-void read_array(int marks[][max_col], int max_row);
-void print_array(int marks[][max_col], int max_row);
+//void read_array(int marks[][max_col], int max_row);
+//void print_array(int marks[][max_col], int max_row);
 int main()
 {
     /*
@@ -36,11 +36,89 @@ int main()
     //Second Example
     int marks[max_row][max_col];
     read_array(marks, max_row);
-    */
+    
     //Practice 1
     int marks[max_row][max_col];
     read_array(marks, max_row);
     print_array(marks, max_row);
+    
+    //Practice 18
+    const int ROWS = 3;
+    const int COLS = 4;
+    int seats[ROWS][COLS];
+    cout << "Enter roll numbers for 12 seats: " << endl;
+    for (int row = 0; row < ROWS; row++)
+    {
+        for (int col = 0; col < COLS; col++)
+        {
+            cout << "Seat [" << row << "][" << col << "]: ";
+            cin >> seats[row][col];
+        }
+    }
+    cout << "Seating Chart: " << endl;
+    for (int row = 0; row < ROWS; row++)
+    {
+        for (int col = 0; col < COLS; col++)
+        {
+            cout << seats[row][col] << " ";
+        }
+        cout << endl;
+    }
+    
+    //Practice 19
+    const int CITIES = 3;
+    const int DAYS = 4;
+    int temp[CITIES][DAYS];
+    cout << "Enter temperatures for 3 cities over 4 days:" << endl;
+    for (int row = 0; row < CITIES; row++)
+    {
+        cout << "City " << row + 1 << ": " << endl;
+        for (int col = 0; col < DAYS; col++)
+        {
+            cout << "  Day " << col + 1 << ": ";
+            cin >> temp[row][col];
+        }
+    }
+    cout << "Temperature Table: " << endl;
+    for (int row = 0; row < CITIES; row++)
+    {
+        for (int col = 0; col < DAYS; col++)
+        {
+            cout << temp[row][col] << "     ";
+        }
+        cout << endl;
+    }
+    */
+    //Practice 20
+    const int ROWS = 2;
+    const int COLS = 3;
+    int A[ROWS][COLS];
+    int B[ROWS][COLS];
+    cout << "Enter values for matrix A {2x3}:" << endl;
+    for (int row = 0; row << ROWS; row++)
+    {
+        for (int col = 0; col < COLS; col++)
+        {
+            cout << "A[" << row << "][" << col << "]: ";
+            cin >> A[row][col];
+        }
+    }
+    for (int row = 0; row < ROWS; row++)
+    {
+        for (int col = 0; col < COLS; col++)
+        {
+            B[row][col] = A[row][col];
+        }
+    }
+    cout << "Matrix B (copy of A):" << endl;
+    for (int row = 0; row < ROWS; row++)
+    {
+        for (int col = 0; col < COLS; col++)
+        {
+            cout << B[row][col] << "     ";
+        }
+        cout << endl;
+    }
     return 0;
 }
 //Ex2 function definiton
@@ -56,7 +134,7 @@ void read_array(int marks[][max_col], int max_row)
         }
     }
 }
-*/
+
 
 void read_array(int marks[][max_col], int max_row)
 {
@@ -82,3 +160,4 @@ void print_array(int marks[][max_col], int max_row)
         cout << endl;
     }
 }
+*/
