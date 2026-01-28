@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    //Practice: Rotate an Array to the Right by K Steps
+    int numbers[] = { 1, 2, 3, 4, 5, 6, 7 };
+    int array_size = 7;
+    int rotate_steps = 3;
+    for (int step = 1; step <= rotate_steps; step++)
+    {
+        int last_element = numbers[array_size - 1];
+        for (int index = array_size - 1; index > 0; index++)
+        {
+            numbers[index] = numbers[index - 1];
+        }
+
+        numbers[0] = last_element;
+    }
+    for (int index = 0; index < array_size; index++)
+    {
+        cout << numbers[index] << " ";
+    }
+
+    //Chunk Array
+    int arr[] = { 1, 9, 6, 3, 2 };
+    int array_length = 5;
+    int chunk_size = 3;
+
+    int index = 0;
+
+    while (index < array_length)
+    {
+        cout << "[ ";
+
+        for (int count = 0; count < chunk_size && index < array_length; count++)
+        {
+            cout << arr[index] << " ";
+            index++;
+        }
+        cout << "] ";
+    }
+    return 0;
+}
+
