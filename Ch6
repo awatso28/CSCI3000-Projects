@@ -1,0 +1,107 @@
+#include <iostream>
+using namespace std;
+//Three Ways Structures Work With Functions Example
+struct student_record
+{
+    int roll_number;
+    int marks;
+};
+
+void change_marks(student_record &student_ref);
+
+//Practice 48: Employee Salary
+struct employee_record
+{
+    int employee_id;
+    int salary;
+};
+void increase_salary(employee_record employee_copy, int bonus_amount)
+{
+    employee_copy.salary = employee_copy.salary + bonus_amount;
+    cout << "Inside function (copy): " << employee_copy.salary << endl;
+}
+//Practice 49: Rectangle Resize
+struct rectangle
+{
+    int length;
+    int width;
+};
+void resize_rectangle(rectangle rect_copy, int factor)
+{
+    rect_copy.length = rect_copy.length * factor;
+    rect_copy.width = rect_copy.width * factor;
+
+    int area_inside = rect_copy.length * rect_copy.width;
+    cout << "Area inside function (copy): " << area_inside << endl;
+}
+//Practice 50: Bank Deposit
+struct bank_account
+{
+    int account_number;
+    int balance;
+};
+void deposit_money(bank_account& account_ref, int deposit_amount)
+{
+
+}
+int main()
+{
+    //Three Ways Structures Work With Functions Example
+    student_record student_main;
+
+    student_main.roll_number - 1;
+    student_main.marks = 90;
+
+    cout << "Before function call: " << student_main.marks << endl;
+
+    cout << "Address inside main: " << &student_main << endl;
+
+    change_marks(student_main);
+
+    cout << "After function call: " << student_main.marks << endl;
+
+    //Practice 48: Employee Salary
+    employee_record employee_main;
+    int bonus_amount;
+    cout << "Enter your employee id: ";
+    cin >> employee_main.employee_id;
+    cout << "Enter your salary: $";
+    cin >> employee_main.salary;
+    cout << "Enter your bonus amount: $";
+    cin >> bonus_amount;
+
+    cout << "Before function call: " << employee_main.salary << endl;
+    increase_salary(employee_main, bonus_amount);
+    cout << "After function call: " << employee_main.salary << endl;
+
+    //Practice 49: Rectangle Resize
+    rectangle rect_main;
+    int factor;
+
+    cout << "Enter the length of the rectangle: ";
+    cin >> rect_main.length;
+    cout << "Enter the width of the rectangle: ";
+    cin >> rect_main.width;
+    cout << "Enter the factor: ";
+    cin >> factor;
+
+    int area_before = rect_main.length * rect_main.width;
+    cout << "Area before call (main): " << area_before << endl;
+
+    resize_rectangle(rect_main, factor);
+
+    int area_after = rect_main.length * rect_main.width;
+    cout << "Area after call (main): " << area_after << endl;
+
+    //Practice 50: Bank Deposit
+
+}
+//Three Ways Structures Work With Functions Example
+void change_marks(student_record &student_ref)
+{
+    student_ref.marks = 50;
+
+    cout << "Inside function (reference): " << student_ref.marks << endl;
+
+    cout << "Address inside function: " << &student_ref << endl;
+}
