@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-//Function Declarations for Problemm 14
+//Function Declarations for Problem 14
 void input_marks(int student_marks[], int student_count);
 void display_marks(int student_marks[], int student_count);
 int total_marks(int student_marks[], int student_count);
@@ -69,25 +69,51 @@ void input_marks(int student_marks[], int student_count)
 
 void display_marks(int student_marks[], int student_count)
 {
-    
+    cout << "\nMarks of all students: ";
+for (int index = 0; index < student_count; index++)
+{
+    cout << student_marks[index] << " ";
 }
 
 int total_marks(int student_marks[], int student_count)
 {
-    return 0;
+    int sum_of_marks = 0;
+    for (int index = 0; index < student_count; index++)
+    {
+        sum_of_marks += student_marks[index];
+    }
+    return sum_of_marks;
 }
 
 float average_marks(int student_marks[], int student_count)
 {
-    return 0.0f;
+    int sum_of_marks = total_marks(student_marks, student_count);
+    float average_value = (float)sum_of_marks / student_count;
+    return average_value;
 }
 
 int count_passed(int student_marks[], int student_count)
 {
-    return 0;
+    int passed_count = 0;
+    for (int index = 0; index < student_count; index++)
+    {
+        if(student_marks[index] >= 40)
+        {
+            pased_count++;
+        }
+    }
+    return passed_count;
 }
 
 int highest_mark(int student_marks[], int student_count)
 {
-    return 0;
+    int highest_value = student_marks[0];
+    for (int index = 1; index < student_count; index++)
+    {
+        if (student_marks[index] > highest_value)
+        {
+            highest_value = student_marks[index];
+        }
+    }
+    return highest_value;
 }
