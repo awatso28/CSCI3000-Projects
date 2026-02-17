@@ -1,21 +1,26 @@
 #include <iostream>
 using namespace std;
 
-//Ex2 constants for array size
-//const int max_row = 3;
-//const int max_col = 3;
-//Ex2 function declaratin
-//void read_array(int marks[][max_col], int max_row);
-//P1 constants for array size
-//const int max_row = 2;
-//const int max_col = 3;
-//P1 Function declarations
-//void read_array(int marks[][max_col], int max_row);
-//void print_array(int marks[][max_col], int max_row);
+//Passing 2-D Arrays to Functions
+const int max_row = 2;
+const int max_col = 3;
+Passing 2-D Arrays to Function function declaratin
+void read_array(int marks[][max_col], int max_row);
+//Practice 17
+const int max_row = 2;
+const int max_col = 3;
+void read_array(int marks[][max_col], int max_row);
+void print_array(int marks[][max_col], int max_row);
+//Practice 24
+const int max_row = 3;
+const int max_col = 4;
+void read_attendance(int attendance[][max_col], int max_row);
+void print_attendance(int attendance[][max_col], int max_row);
+void student_summary(int attendance[][max_col], int max_row);
+void worst_day(int attendance[][max_col], int max_row);
 int main()
 {
-    /*
-    //First Example
+    //Taking Input in a 2-D Array(Nested Loops)
     int marks[3][3];
     for (int row = 0; row < 3; row++)
     {
@@ -24,6 +29,7 @@ int main()
             cin >> marks[row][col];
         }
     }
+    //Printing a 2-D Array (2x2)
     for (int row = 0; row < 3; row++)
     {
         for (int col = 0; col < 3; col++)
@@ -33,11 +39,11 @@ int main()
         cout << endl;
     }
     
-    //Second Example
+    //Passing 2-D Arrays to Functions
     int marks[max_row][max_col];
     read_array(marks, max_row);
     
-    //Practice 1
+    //Practice 17
     int marks[max_row][max_col];
     read_array(marks, max_row);
     print_array(marks, max_row);
@@ -88,7 +94,6 @@ int main()
         }
         cout << endl;
     }
-    */
     //Practice 20
     const int ROWS = 2;
     const int COLS = 3;
@@ -120,9 +125,65 @@ int main()
         cout << endl;
     }
     return 0;
+    //Practice 22
+    const int STUDENTS = 3;
+    const int SUBJECTS = 4;
+    int marks[STUDENTS][SUBJECTS];
+    cout << "Enter marks for 3 students and 4 subjects:\n";
+    for (int row = 0; row < STUDENTS; row++)
+    {
+        cout << "Student " << (row + 1) << ":\n";
+        for(int col = 0; col < SUBJECTS; col++)
+        {
+            cout << "  Subject " << (col + 1) << ": ";
+            cin >> marks[row][col];
+    }
+    cout << "\nHighest mark for each student:\n";
+    for (int row = 0; row < STUDENTs; row++)
+    {
+        int max_value = marks[row][0];
+        for (int col = 1; col < SUBJECTS; col++)
+        {
+            if(marks[row][col] > max_value)
+            {
+                max_value = marks[row][col];
+            }
+            cout << "Student " << (row + 1) << " highest = " << max_value << endl;
+        }
+    }
+    //Practice 23
+    const int ITEMS = 5;
+    const int COLS = 2;
+    int cart[ITEMS][COLS];
+    cout << "Enter price and quantity for 5 times:\n";
+    for (int row = 0; row < ITEMS; row++)
+    {
+        cout << "Item " << (row + 1) << " price: ";
+        cin >> cart[row][0];
+        cout << "Item " << (row + 1) << " quantity: ";
+        cin >> cart[row][1];
+    }
+    cout << "\nItem\tPrice\tOty\tSubtotal\n";
+    int total = 0;
+    for (int row = 0; row < ITEMS; row++)
+    {
+        int price = cart[row][0];
+        int qty = cart[row][1];
+        int subtotatl = price * qty;
+        cout << (row + 1) << "\t" << price << "\t" << qty << "\t" << subtotal << endl;
+        total += subtotal;
+    }
+    cout << "-----------------------------\n";
+    cout << "Total:\t\t\t" << total << endl;
+    //Practice 24
+    int attendance[max_row][max_col];
+    read_attendance(attendance, max_row);
+    print_attendance(attendance, max_row);
+    student_summary(attendance, max_row);
+    worst_day(attendance, max_row);
+return 0;
 }
-//Ex2 function definiton
-/*
+//Passing 2-D Arrays to Functions
 void read_array(int marks[][max_col], int max_row)
 {
     for (int row = 0; row < max_row; row++)
@@ -134,8 +195,7 @@ void read_array(int marks[][max_col], int max_row)
         }
     }
 }
-
-
+//Practice 17 
 void read_array(int marks[][max_col], int max_row)
 {
     for (int row = 0; row < max_row; row++)
@@ -147,7 +207,6 @@ void read_array(int marks[][max_col], int max_row)
         }
     }
 }
-
 void print_array(int marks[][max_col], int max_row)
 {
     cout << "\nMarks array:\n";
@@ -160,4 +219,78 @@ void print_array(int marks[][max_col], int max_row)
         cout << endl;
     }
 }
-*/
+//Practice 24
+void read_attendance(int attendance[][max_col], int max_row)
+{
+    cout << "Enter attendance (1 = Present, 0 = Absent)\n";
+    for (int row = 0; row < max_row; row++)
+    {
+        cout << "Student " << row + 1 << ":\n";
+        for (int col = 0; col < max_col; col++)
+        {
+            cout << "  Day " << col + 1 << ": ";
+            cin >> attendance[row][col];
+        }
+    }
+}
+void print_attendance(int attendance[][max_col], int max_row)
+{
+    cout << "\nAttendance Table:\n";
+    cout << "        Day1 Day2 Day3 Day4\n";
+    for (int row = 0; row < max_row; row++)
+    {
+        cout << "Stu " << row + 1 << "     ";
+        for (int col = 0; col < max_col; col++)
+        {
+            cout << attendance[row][col] << "      ";
+        }
+        cout << endl;
+    }
+}
+void student_summaary(int attendance[][max_col], int max_row)
+{
+    cout << "\nStudent Summary:\n";
+    for (int row = 0; row < max_row; row++)
+    {
+        int present = 0;
+        int absent = 0;
+        for (int col = 0; col < max_col; col++)
+        {
+            if (attendance[row][col] == 1)
+            {
+                present++;
+            }            
+            else
+            {
+                absent++;
+            }
+        }
+        cout << "Student " << row +1 << ": Present = " << present << ", Absent = " << absent << endl;
+        if (absent >= 2)
+        {
+            cout << "Warning: Student " << row + 1 << " has " << absent << " absences!\n";
+        }
+    }
+}
+void worst_day(int attendance[][max_col], int max_row)
+{
+    int worst_day_index = 0;
+    int max_absences = -1;
+    for (int col = 0; col < max_col; col++)
+    {
+        int absences_today = 0;
+        for (int row = 0; col < max_row; row++)
+        {
+            if (attendance[row][col] == 0)
+            {
+                absences_today++;
+            }
+        }
+        if (absences_today > max_absences)
+        {
+            max_absences =  absences_today;
+            worst_day_index = col;
+        }
+    }
+    cout << "\nWorst attendance day = Day " << worst_day_index + 1 << " (" << max_absences << " absences)\n";
+}
