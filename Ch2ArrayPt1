@@ -8,17 +8,17 @@ void print_array(int marks[], int size);
 void print_even(int numbers[], int size1);
 
 //Function Declaration(Problem 11)
-void replace_small(int marks2[], int size2);
+void replace_small(int numbers[], int size2);
 
 //Function Declaration(Problem 12)
-void search_element(int marks3[], int size3, int search_num);
+void search_element(int numbers[], int size3, int search_num);
 
 //Function Declaration(Problem 13)
 void count_pass(int marks4[], int size);
 
 int main()
 {
-    //Example
+    //Function Declaration (Prototype)
     const int size = 5;
     int marks[size] = { 10, 20, 30, 40, 50 };
 
@@ -29,26 +29,26 @@ int main()
     const int size1 = 5;
     int numbers[size] = { 10, 15, 20, 25, 30 };
 
-    print_even(numbers, size1);
+    print_even(marks, 5);
     cout << endl;
 
     //Practice 11: Replace Values Less than 10 with 10
     const int size2 = 5;
-    int marks2[size2] = { 5, 12, 8, 20, 3 };
+    int numbers[size2] = { 5, 12, 8, 20, 3 };
 
-    replace_small(marks2, size2);
+    replace_small(numbers, size2);
     cout << endl;
 
     //Practice 12:Check If a Number Exists in the Array
     const int size3 = 5;
-    int marks3[size3] = { 4, 7, 9, 12, 15 };
+    int numbers[size3] = { 4, 7, 9, 12, 15 };
 
     int search_num;
 
     cout << "Enter a number: ";
     cin >> search_num;
 
-    search_element(marks3, size3, search_num);
+    search_element(numbers, size3, search_num);
 
     //Practice 13: Count Passed Students
     const int size4 = 5;
@@ -68,47 +68,44 @@ void print_array(int marks[], int size)
 }
 
 //Function Definition(Problem 10)
-void print_even(int numbers[], int size1)
+void print_even(int marks[], int size1)
 {
     for (int index = 0; index < size1; index++)
     {
-        if (numbers[index] % 2 == 0)
+        if (marks[index] % 2 == 0)
         {
-            cout << numbers[index] << " ";
+            cout << marks[index] << " ";
         }
     }
 }
 
 //Function Definition(Problem 11)
-void replace_small(int marks2[], int size2)
+void replace_small(int numbers[], int size2)
 {
     for (int index = 0; index < size2; index++)
     {
-        if (marks2[index] < 10)
+        if (numbers[index] < 10)
         {
-            marks2[index] = 10;
-            cout << marks2[index] << " ";
+            numbers[index] = 10;
+            cout << numbers[index] << " ";
         }
-        else
-        {
-            cout << marks2[index] << " ";
-        }
+        cout << numbers[index] << " ";
     }
 }
 
 //Function Definiton(Problem 12)
-void search_element(int marks3[], int size3, int search_num)
+void search_element(int numbers[], int size3, int search_num)
 {
     bool same = false;
     for (int index = 0; index < size3; index++)
     {
-        if (marks3[index] == search_num)
+        if (numbers[index] == search_num)
         {
-            same = true;
+            found = true;
             break;
         }
     }
-    if (same)
+    if (found)
     {
         cout << "Found" << endl;
     }
