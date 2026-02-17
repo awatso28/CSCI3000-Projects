@@ -2,12 +2,20 @@
 using namespace std;
 int main()
 {
-    /*
     //Input and Output of Strings Example
     char user_name[50];
     cout << "Enter your full name: ";
     cin.getline(user_name, 50);
     cout << "Hello, " << user_name << "!" << endl;
+    //String Traversal
+    char user_name[50];
+    cout << "Enter your name: ";
+    cin.getline(user_name, 50);
+    cout << "\nCharacters in the name:\n";
+    for (int index = 0; user_name[index] != '\0'; index++)
+    {
+        cout << user_name[index] << endl;    
+    }
     //String Length Example
     char name[50];
     cout << "Enter your name: ";
@@ -35,7 +43,7 @@ int main()
         index++;
     }
     destination[index] = '\0';
-    cout << "Copies string: " << destination << endl;
+    cout << "Copied string: " << destination << endl;
     //Computers Understand Letters Example
     char character_value;
     character_value = 'A';
@@ -74,7 +82,9 @@ int main()
         cout << "First string is smaller\n";
     }
     else
+    {
         cout << "First string is greater\n";
+    }
     //String Compare Function Example
     char first_word[20];
     char second_word[20];
@@ -141,6 +151,236 @@ int main()
         right_index++;
     }
     cout << text << endl;
+    //Practice 33
+    char word[100];
+    cin >> word;
+    int length = 0;    
+    while (word[length] != '\0')
+    {    
+        length++;    
+    }        
+    int left_index = 0;    
+    int right_index = length - 1;
+    bool is_palindrom = true;
+    while (left_index < right_index)
+    {
+        if(word[left_index] !- word[right_index])
+        {
+            is_palindrom = false;
+            break;
+        }
+        left_index++;
+        right_index++;
+    }
+    if (is_palindrom)
+    {
+        cout << "Palindrome" << endl;
+    }
+    else
+    {
+        cout << "Not Palindrome" << endl;
+    }
+    //Practice 34
+    char input_text[200];
+    char unique_character[200];
+    cin.getline(input_text, 200);
+    int unique_index = 0;
+    for (int input_index = 0; input_text[input_ndex] != '\0'; input_index++)
+    {
+        bool is_already_present = false;
+        for (int check_index = 0; check_index < unique_index; check_index++)
+        {
+            if (input_text[input_index] == unique_characters[check_index])
+            {
+                is_already_present = true;
+                break;
+            }
+        }
+        if (!is_already_presnt)    
+        {
+            unique_character[unique_index] = input_text[input_index];
+            unique_index++;
+        }
+    }
+    unique_characters[unique_index] = '\0';
+    cout << unique_characters << endl;
+    //Practice 35
+    char input_text[200];
+    cin.getline(input_text, 200);
+    char first_unique_character = '\0';
+    for (int current_index = 0; input_text[current_index] != '\0'; current_index++)
+    {
+        int character_count = 0;
+        for (int scan_index = 0; input_text[scan_index] != '\0'; scan_index++)
+        {
+            if(input_text[current_index} == input_text[scan_index])
+            {
+                 character_count++;
+            }
+        }
+        if (character_count == 1)
+        {
+            first_unique_character = input_text[current_index];
+            break;
+        }
+    }
+    if(first_unique_character == '\0')
+    {
+        cout << "None" << endl;
+    }
+    else
+    {
+        cout << first_unique_character << endl;
+    }
+    //Practice 36
+    char input_sentence[200];
+    cin.getline(input_sentence, 200);
+    for (int character_index = 0; input_sentence[character_index] != '\0'; character_index++)
+    {
+        if(input_sentence[character_index] == ' ')
+        {
+            input_sentence[character_index] = '-';
+        }
+    }
+    cout << input_sentence << endl;
+    //Practice 37
+    char first_string[100];
+    char second_string[100];
+    cout << "Enter first string: ";
+    cin >> first_string;
+    cout << "Enter second string: ";
+    cin >> second_String;
+    int first_count[26] = {0};
+    int second_count[26] = {0};
+    for (int index = 0; first_string[index] != '\0'; index++)
+    {
+        int position =  first_String[index] - 'a';
+        first_count[position]++;
+    }
+    for (int index = 0; second_string[index] != '\0'; index++)
+    {
+        int position = second_string[index] - 'a';
+        second_count[posiition]++;
+    }
+    bool is_anagram = true;
+    for (int index = 0; index < 26; index++)
+    {
+        if(first_count[index] != second_count[index])
+        {
+            is_anagram = false;
+            break;
+        }
+    }    
+    if (is_anagram)
+    {
+        cout << "Anagram";
+    }
+    else
+    {
+        cout << "Not Anagram";
+    }
+    //Practice 38
+    char input_sentence[300];
+    cin.getline(input_sentence, 300);
+    int longest_word_start = 0;
+    int longest_word_length = 0;
+    int current_word_start = 0;
+    int current_word_length = 0;
+    for (int character_index = 0; character_index++)
+    {
+        if(input_sentence[character_index] == ' ' || input_sentence[character_index] == '\0')
+        {
+            if (current_word_length > longest_word_length)
+            {
+                longest_word_length = current_word_length;
+                longest_word_start = current_word_start;
+            }
+            if (input_sentence[character_index] == '\0')
+            {
+                break;
+            }
+            current_word_length = 0;
+            current_word_start = character_index + 1;
+        }
+        else
+        {
+            current_word_length++;
+        }
+    }
+    for (int print_index = 0; print_index < longest_word_length; print_index++)
+    { 
+        cout << input_sentence[longest_word_start + print_index];
+    }
+    cout << endl;
+    //Practice 39
+    char input word[200];
+    cin >> input_word;
+    for (int character_index = 0; input_word[character_index] != '\0';)
+    {
+        char current_character = input_word[character_index];
+        int repeat_count = 0;
+        while (input_word[character_index] == current_character)
+        {
+            repeat_count++;
+            character_index++;
+        }
+        cout << current_character << repeat_count;
+    }
+    //Practice 40
+    char input_text[300];
+    char search_pattern[100];
+    cin.getline(input_text, 300);
+    cin.getline(search_pattern, 100);
+    int input_text_length = 0;
+    while (input_text[input_text_length] != '\0')
+    {
+        input_text_length++;
+    }
+    int search_pattern_length = 0;
+    while (search_pattern[search_pattern_length] != '\0')
+    {
+        search_pattern_length++;
+    }
+    int found_start_index = -1;
+    for (int text_index = 0; text_index <= input_text_length - search_pattern_length; text_index++)
+    {
+        bool is_match = true;
+        for (int pattern_index = 0; pattern_index < search_pattern_length; pattern_index++)
+        {
+            if(input_text[text_index + pattern_index] != search_pattern[pattern_index])
+            {
+                is_match = false;
+                break;
+            }
+        }
+    }
+    cout << found_start_index << endl;
+    //Practice 41
+    char input_text[300];
+    cout << "Enter a string: ";
+    cin.getline(input_text, 300);
+    bool visited[256] = {false};
+    int start_index = 0;
+    int end_index = 0;
+    int max_length = 0;
+    while (input_text[end_index] != '\0')
+    {
+        char current_char = input_text[end_index];
+        while(visited[current_char] == true)
+        {
+            char left_char = input_text[start_index];
+            visited[left_char] = false;
+            start_index++;
+        }
+        visited[current_char] = true;
+        int current_length = end_index - start_index + 1;
+        if (current_length > max_length)
+        {
+            max_length = current_length;
+        }
+        end_index++;
+    }
+    cout << "Longest length without repeating characters = " << max_length << endl;
     return 0;
 }
 
