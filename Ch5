@@ -1,0 +1,105 @@
+#include <iostream>
+using namespace std;
+//Single Structure Example
+struct Student
+{
+    int roll_number;
+    char name[50];
+    float marks;
+};
+//Practice 42: Mini Library Management System
+struct Library
+{
+    int book_id;
+    char title[50];
+    float price;
+};
+//Practice 43: Banking System (Structure)
+struct Bank
+{
+    int account_number;
+    char holder_name[50];
+    float balance;
+};
+//Acessing Array of Structures Example
+struct Student1
+{
+    int roll_number;
+    float marks;
+};
+//Practice 44: Student Records Using Loop (Array of Structures)
+struct Student_1
+{
+    int roll_number;
+    char student_name[50];
+    float marks;
+};
+int main()
+{
+    //Single Structure Example
+    Student student_1;
+    student_1.roll_number = 1;
+    student_1.marks = 92.5;
+    cout << "Roll Number: " << student_1.roll_number << endl;
+    cout << "Marks: " << student_1.marks << endl;
+    cout << endl;
+    //Practice 42: Mini Library Management System
+    Library book_1;
+    cout << "Enter the book's ID: ";
+    cin >> book_1.book_id;
+    cin.ignore();
+    cout << "Enter the book's title: ";
+    cin.getline(book_1.title, 50);
+    cout << "Enter the book's price: ";
+    cin >> book_1.price;
+    cout << "Book ID: " << book_1.book_id << endl;
+    cout << "Book Title: " << book_1.title << endl;
+    cout << "Book Price: $" << book_1.price << endl;
+    cout << endl;
+    //Practice 43: Banking System (Structure)
+    Bank account1;
+    cout << "Enter the account number: ";
+    cin >> account1.account_number;
+    cin.ignore();
+    cout << "Enter the account holder's name: ";
+    cin.getline(account1.holder_name, 50);
+    cout << "Enter the account balance: ";
+    cin >> account1.balance;
+    cout << "Account Number: " << account1.account_number << endl;
+    cout << "Account Holder's Name: " << account1.holder_name << endl;
+    cout << "Account Balance: $" << account1.balance << endl;
+    cout << endl;
+    //Acessing Array of Structures Example
+    Student1 students[2];
+    students[0].roll_number = 1;
+    students[0].marks = 88.5;
+    students[1].roll_number = 2;
+    students[1].marks = 91.0;
+    cout << "Student 1 Details: " << endl;
+    cout << "Roll Number: " << students[0].roll_number << endl;
+    cout << "Marks: " << students[0].marks << endl;
+    cout << "\nStudent 2 Details: " << endl;
+    cout << "Roll Number: " << students[1].roll_number << endl;
+    cout << "Marks: " << students[1].marks << endl;
+    cout << endl;
+    //Practice 44: Student Records Using Loop (Array of Structures)
+    Student_1 students[3];
+    for (int index = 0; index < 3; index++)
+    {
+        cout << "Enter student's roll number: ";
+        cin >> students[index].roll_number;
+        cin.ignore();
+        cout << "Enter student's name: ";
+        cin.getline(students[index].student_name, 50);
+        cout << "Enter student's marks: ";
+        cin >> students[index].marks;
+    }
+    for (int index = 0; index < 3; index++)
+    {
+        cout << "Student: " << (index + 1) << ":" << endl;
+        cout << "Roll Number: " << students[index].roll_number << endl;
+        cout << "Name: " << students[index].student_name << endl;
+        cout << "Marks: " << students[index].marks << endl;
+    }
+    return 0;
+}
