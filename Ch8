@@ -1,0 +1,262 @@
+#include <iostream>
+#include <string>
+using namespace std;
+//What is an Enumeration? Example
+enum Day
+{
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday
+};
+//Enum with Constant Values
+enum error
+{
+    success = 200,
+    not_found = 404,
+    server_error = 500
+};
+//Using enum in switch
+enum TrafficLight
+{
+    Red,
+    Yellow,
+    Green
+};
+//Practice 54: Smart Device Power State
+enum PowerState
+{
+    Off,
+    On,
+    Sleep
+};
+//Practice 54: Restaurant Order Status Tracker
+enum OrderStatus
+{
+    Placed, 
+    Cooking,
+    Ready,
+    Delivered
+};
+//Practice 55: ATM TRansaction Menu
+enum TransactionType
+{
+    Deposit,
+    Withdraw,
+    CheckBalance,
+    Exit
+};
+//Practice 56: Smart Home Mode Controller
+enum HomeMode
+{
+    Home = 1,
+    Away = 2,
+    Night = 3,
+    Vacation = 4
+};
+int main()
+{
+    //What is an Enumeration? Example
+    Day today = Wednesday;
+    cout << today << endl;
+    //Memory Concept Example
+    cout << sizeof(Day) << endl;
+    //Enum with Constant Values
+    error current_error = not_found;
+    cout << "Error Code: " << current_error << endl;
+    //Using enum in switch
+    TrafficLight signal = Green;
+    switch (signal)
+    {
+    case Red:
+        cout << "STOP" << endl;
+        break;
+    case Yellow:
+        cout << "GET READY" << endl;
+        break;
+    case Green:
+        cout << "GO" << endl;
+        break;
+    }
+    //Practice 54: Smart Device Power State
+    PowerState device_state = Sleep;
+    switch (device_state)
+    {
+    case Off:
+        cout << "Device is turned off" << endl;
+        break;
+    case On:
+        cout << "Device is running" << endl;
+        break;
+    case Sleep:
+        cout << "Device is in power-saving mode" << endl;
+        break;
+    }
+    //From Fixed Values to User Input
+    int user_choice;
+    cout << "Select Traffic Light\n";
+    cout << "0 - Red\n";
+    cout << "1 - Yellow\n";
+    cout << "2 - Green\n";
+    cout << "Enter your choice: ";
+    cin >> user_choice;
+    TrafficLight signal1 = (TrafficLight)user_choice;
+    switch (signal1)
+    {
+    case Red:
+        cout << "STOP" << endl;
+        break;
+    case Yellow:
+        cout << "GET READY" << endl;
+        break;
+    case Green:
+        cout << "GO" << endl;
+        break;
+    default:
+        cout << "Invalid Input!";
+    }
+    //Taking User Input as Text Example
+    string user_input;
+    TrafficLight signal2;
+    cout << "Enter signal (Red / Yellow / Green): ";
+    cin >> user_input;
+    if (user_input == "Red")
+    {
+        signal2 = Red;
+    }
+    else if (user_input == "Yellow")
+    {
+        signal2 = Yellow;
+    }
+    else if (user_input == "Green")
+    {
+        signal2 = Green;
+    }
+    else
+    {
+        cout << "Invalid Input!";
+        return 0;
+    }
+    switch (signal2)
+    {
+    case Red:
+        cout << "STOP" << endl;
+        break;
+    case Yellow:
+        cout << "GET READY" << endl;
+        break;
+    case Green:
+        cout << "GO" << endl;
+        break;
+    }
+    //Practice 54: Restaurant Order Status Tracker
+    string userinput;
+    OrderStatus current_status;
+    cout << "Enter status (Placed / Cooking / Ready / Delivered): ";
+    cin >> userinput;
+    if (userinput == "Placed")
+    {
+        current_status = Placed;
+    }
+    else if (userinput == "Cooking")
+    {
+        current_status = Cooking;
+    }
+    else if (userinput == "Ready")
+    {
+        current_status = Ready;
+    }
+    else if (userinput == "Delivered")
+    {
+        current_status = Delivered;
+    }
+    else
+    {
+        cout << "Invalid Input!";
+        return 0;
+    }
+    switch (current_status)
+    {
+    case Placed:
+        cout << "Your order has been placed and will be made shortly." << endl;
+        break;
+    case Cooking:
+        cout << "Your order is currently being made and will be ready shortly." << endl;
+        break;
+    case Ready:
+        cout << "Your order is ready!" << endl;
+        break;
+    case Delivered:
+        cout << "Your order has been delivered." << endl;
+        break;
+    }
+    //Practice 55: ATM Transaction Menu
+    string input;
+    TransactionType type;
+    cout << "Enter the transaction type (Deposit / Withdraw / CheckBalance / Exit): ";
+    cin >> input;
+    if (input == "Deposit")
+    {
+        type = Deposit;
+    }
+    else if (input == "Withdraw")
+    {
+        type = Withdraw;
+    }
+    else if (input == "CheckBalance")
+    {
+        type = CheckBalance;
+    }
+    else if (input == "Exit")
+    {
+        type = Exit;
+    }
+    else
+    {
+        cout << "Invalid Input!";
+        return 0;
+    }
+    switch (type)
+    {
+    case Deposit:
+        cout << "How much would you like to deposit?" << endl;
+        break;
+    case Withdraw:
+        cout << "How much would you like to withdraw?" << endl;
+        break;
+    case CheckBalance:
+        cout << "Displaying curent balance..." << endl;
+        break;
+    case Exit:
+        cout << "Goodbye!" << endl;
+        break;
+    }
+    //Practice 56: Smart Home Mode Controller
+    int mode_choice;
+    cout << "Enter numbers (1-4) for the mode of your home.\n";
+    cout << "1 - Home\n";
+    cout << "2 - Away\n";
+    cout << "3 - Night\n";
+    cout << "4 - Vacation\n";
+    cout << "Enter your choice: ";
+    cin >> mode_choice;
+    HomeMode mode = (HomeMode)mode_choice;
+    switch (mode_choice)
+    {
+    case Home:
+        cout << "Home Mode: Lights on, doors locked." << endl;
+        break;
+    case Away:
+        cout << "Away Mode: Lights off, doorrs locked, and full security system on" << endl;
+        break;
+    case Night:
+        cout << "Night Mode: Lights dimmed, doors locked." << endl;
+        break;
+    case Vacation:
+        cout << "Vacation Mode: Lights off, doorrs locked, energy-saving system and full security system on." << endl;
+    default:
+        cout << "Invalid Input!";
+    }
+    return 0;
+}
