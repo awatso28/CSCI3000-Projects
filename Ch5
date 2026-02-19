@@ -34,6 +34,29 @@ struct Student_1
     char student_name[50];
     float marks;
 };
+//Practice 45: Hospital Patient Records
+struct Patient
+{
+    int patient_id;
+    char name[50];
+    float temperature;
+};
+//Practice 46: University Course Registration System
+struct Registration
+{
+    int student_id;
+    char student_name[50];
+    char course_code[20];
+    int credits;
+};
+//Practice 47: Online Shopping Cart System
+struct Product
+{
+    int product_id;
+    char product_name;
+    float price;
+    int quantity;
+};
 int main()
 {
     //Single Structure Example
@@ -101,5 +124,79 @@ int main()
         cout << "Name: " << students[index].student_name << endl;
         cout << "Marks: " << students[index].marks << endl;
     }
+    //Practice 45: Hospital Patient Records
+    Patient patients[5];
+    for (int index = 0; index < 5; index++)
+    {
+        cout << "\nEnter details for Patient " << (index + 1) << endl;
+        cout << "Patient ID: ";
+        cin >> patients[index].patient_id;
+        cin.ignore();
+        cout << "Patient Name: ";
+        cin.getline(patients[index].name, 50);
+        cout << "Body temperature: ";
+        cin >> patients[index].temperature;
+    }
+    cout << "\n==== Patient Records ====\n";
+    for (int index = 0; index < 5; index++)
+    {
+        cout << "Patient " << (index + 1) << ": ";
+        cout << "ID = " << patients[index].patient_id << ", ";
+        cout << "Name = " << patients[index].name << ", ";
+        cout << "Temperature = " << patients[index].temperature << endl;
+    }
+    //Practice 46: University Course Registration System
+    Registration records[4];
+    int total_credits = 0;
+    for (int index = 0; index < 4; index ++)
+    {
+        cout << "\nEnter details for Student " << (index + 1) << endl;
+        cout << "Student ID: ";
+        cin >> records[index].student_id;
+        cin.ignore();
+        cout << "Student Name: ";
+        cin.getline(records[index].student_name, 50);
+        cout << "Course Code: ";
+        cin.getline(records[index].course_code, 20);
+        cout << "Credits: ";
+        cin >> records[index].credits;
+        total_credits += records[index].credits;
+    }
+    cout << "\n==== Course REgistration Details ====\n";
+    for (int index = 0; index < 4; index++)
+    {
+        cout << "Student " << (index + 1) << ": ";
+        cout << "ID = " << records[index].student_id << ", ";
+        cout << "Name = " << records[index].student_name << ", ";
+        cout << "Course = " << records[index].course_code << ", ";
+        cout << "Credits = " << records[index].drecits << endl;
+    }
+    cout << "\nTotal Credits Registered: " << total_credits << endl;
+    //Practice 47: Online Shopping Cart System
+    Product cart[5];
+    float total_bill = 0.0;
+    for (int index = 0; index < 5; index++)
+    {
+        cout << "\nEnter details for Product " << (index + 1) << endl;
+        cout << "Product ID: ";
+        cin >> cart[index].product_id;
+        cin.ignore();
+        cout << "Product Name: ";
+        cin.getline(cart[index].product_name, 50);
+        cout << "Price: ";
+        cin >> cart[index].price;
+        cout << "Quantity: ";
+        cin >> cart[index].quantity;
+    }
+    cout << "\n==== Shopping Cart Bill ====\n";
+    for (int index = 0; index < 5; index++)
+    {
+        float individual_cost = cart[index].price * cart[index].quantity;
+        total_bill += individual_cost;
+        cout << "Product: " << cart[index].product_namme << endl;
+        cout << "Cost: " << individial_cost << endl;
+        cout << "-----------------------------\n";
+    }
+    cout << "Final Total Bill: " << total_bill << endl;
     return 0;
 }
