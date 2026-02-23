@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 //Practice 57: Movie Ticket Booking System
 struct booking
@@ -12,6 +13,8 @@ struct booking
 //Practice 57: Movie Ticket Booking System
 void display_bookings(booking booking_list[], int size)
 {
+    float total_rev = 0;
+    cout << "---- Booking Details ----" << endl;
     for (int index = 0; index < size; index++)
     {
         cout << "Booking ID: " << booking_list[index].booking_id << endl;
@@ -20,7 +23,186 @@ void display_bookings(booking booking_list[], int size)
         cout << "Tickets: " << booking_list[index].number_of_tickets << endl;
         cout << "Total Amount: " << (booking_list[index].number_of_tickets * booking_list[index].ticket_price) << endl;
         cout << "------------------------" << endl;
+        total_rev += total_amount;
     }
+    cout << "Total Theatre Revenue: " << total_revenue << endl;
+}
+//Practice 58: Supermarket Shelf Stock Checker
+struct product
+{
+    int product_code;
+    string product_name;
+    int stock_count;
+};
+void input_products(product store[][3], int aisle_count, int products_per_aisle)
+{
+    for (int aisle_index = 0; aisle_index < aisle_count; aisle_index++)
+    {
+        cout << "\nEnter details for Aisle " << aisle_index + 1 << endl;
+        for (int product_index = 0; product_index < products_per_aisle; product_index++)
+        {
+            cout << "Product " << product_index + 1 << " Code: ";
+            cin >> store[aisle_index][product_index].product_code;
+            cout << "Product " << product_index + 1 << " Name: ";
+            cin >> store[aisle_index][product_index].product_name; 
+            cout << "Product " << product_index + 1 << " Stock: ";
+            cin >> store[aisle_index][product_index].product_count;
+        }
+    }
+}
+void display_sheld_report(const product store[][3], int aisle_count, int products_per_aisle)
+{
+    cout << "\n==== Shelf Stock Report ====\n" << endl;
+    for (int aisle_index = 0; aisle_index < aisle_count; aisle_index++)
+    {
+        int aisle_total_Stock = 0;
+        cout << "Aisle " << aisle_index + 1 << ":" << endl;    
+        for (int product_index = 0; porduct_index < products_per_aisle; product_index++)
+        {
+            cout << store[aisle_index][product_index].product_code << " - " << store[aisle_index][product_index].product_name << " | Stock: " << store[aisle_index][product_index].stock_count << endl;
+            aisle_total_stock += store[aisle_index][product_index].stock_count;
+        }
+        cout << "Total Stock in Aisle " << aisle_index +  1 << ": " << aisle_total_stock << endl;
+        cout << "----------------------------" << endl;
+    }
+}
+//Enum with Structure
+enum match_result
+{
+    win,
+    loss,
+    draw
+};
+struct match
+{    
+    string team_name;
+    match_result result;
+};
+//Practice 59: Food Delivery Order Status
+enum order_status
+{    
+    placed,
+    preparing,
+    out_for_delivery,
+    delivered
+};
+struct order
+{
+    int order_id;
+    string customer_name;
+    float total_amount;
+    order_status status;
+}
+//Practice 60: Soccer Tournament Management System
+enum match_result
+{
+    win,
+    loss,
+    draw
+};
+struct player
+{
+    int player_id;
+    string player_name;
+    int goals_scored;
+};
+struct team
+{
+    string team_name;
+    player players[4];
+    match_result results[3];
+};
+void input_players(player league_players[][4], int team_count, int players_per_team)
+{
+    for (int team_index = 0; team_index < team_count; team_index++)
+    {
+        cout << "--- Enter Players for Team " << team_index + 1 << " ---" << endl;
+        for (int player_index = 0; player_index < players_per_team; player_index++)
+        {
+            cout << "Player ID: ";
+            cin >> league_players[team_index][player_index].player_id;
+            cout << "Player Name: ";
+            cin >> league_players[team_index][player_index].player_name;
+            cout << "Goals Scored: ";
+            cin >> league_players[team_index][player_index].goals_scored;
+        }
+    }
+}
+void build_teams(team teams[], const player league_players[][4], int team_count, int players_per_team)
+{
+    for (int team_index = 0; team_index < team_count; team_index++)
+    {
+        for (int player_index = 0; player_index < players_per_team; player_index++)
+        {
+            teams[team_index].players[player_index] = league_players[team_index][player_index];
+        }
+    }
+}
+void input_results(team teams[], int team_count, int match_count)
+{
+    int choice;
+    for(int team_index = 0; team_index < team_count; team_index++)
+    {
+        cout << "--- Enter Results for " << teams[team_index].team_name << " ---" << endl;
+        for (int match_index = 0; match_index < mtach_count; match_index++)
+        {
+            cout << "Match " << match_index + 1 << "( 0-win, 1-loss, 2-draw): ";
+            cin >> choice;
+            if (choice == 0)
+            {
+                teams[team_index].results[match_index] = win;
+            }
+            else if (choice == 1)
+            {
+                teams[team_index].results[match_index] = loss;
+            }
+            else
+            {
+                teams[team_index].results[match_index] = draw;
+            }
+        }
+    }
+}
+void display_report(const team teams[], int team_count, int players_per_team, int match_count)
+{
+    int highest_points = -1'
+    int highest_goals = -1;
+    int winner_index = 0;
+    cout << "============== SOCCER TOURNAMENT REPORT ==============" << endl;
+    for (int team_index = 0; team_index < team_count; team_index++)
+    {
+        int total_goals = 0;
+        int total_points = 0;
+        cout << "Team: " << teams[team_index].team_name << endl;
+        cout << "Players: "
+        for (int player_index = 0; player_index < players_per_team; player_index++)
+        {
+            cout << teams[team_index].players[player_index].player_id << " " << teams[team_index].players[player_index].player_name << " - Goals: " << team[team_index].players[player_index].goals_scored << endl;
+            total_goals += teams[team_index].players[player_index].goals_scored'
+        }
+        for(int match_index = 0; match_index < match_count; match_index++)
+        {
+            if(teams[team_index].results[match_index] == win)
+            {
+                total_points += 3;
+            }
+            else if(teams[team_index].results[match_index] == draw)
+            {
+                total_points += 1;
+            }
+        }
+        cout << "Total Goals: " << total_goals << endl;
+        cout << "Total Points: " << total_points << endl;
+        cout << "---------------------------------------------" << endl;
+        if (total_points > highest_points || (total_points == highest_points && total_goals > highest_goals))
+        {
+            highest_points = total+points;
+            highest_goals = total_goals;
+            winner_indes = team_index;
+        }
+    }
+    cout << "Tournament Winner: " << teams[winner_index].team_name << endl;
+    cout << "Points: " << highest_points << " | Goals: " << highest_goals << endl;
 }
 int main()
 {
@@ -43,9 +225,99 @@ int main()
         cin >> bookings[index].ticket_price;
     }
     cout << " " << endl;
-    cout << "---- Booking Details ----" << endl;
+    
     display_bookings(bookings, size);
     cout << " " << endl;
-    cout << "Total Theatre Revenue: " << endl;
+    //Practice 58: Supermarket Shelf Stock Checker
+    const int aisle_count = 2;
+    const int products_per_aisle = 3;
+    product store[aisle_count][products_per_aisle];
+    input_products(store, aisle_count, products_per_aisle);
+    display_shelf_report(store, aisle_count, products_per_aisle_;
+
+    //Enum with Structure
+    match match_1 - { "Manchester United", win};
+    if (match_1,result == win)
+    {
+        cout << match_1.team_name << " won the match!";
+    }
+    else if (match_1.result == loss)
+    {
+        cout << match_1.team_name << " lost the match!";
+    else
+    {
+        cout << "Match draw";
+    }
+    //Practice 59: Food Delivery Order Status
+    order order_1;
+    int status_choice;
+    cout << "Enter Order ID: ";
+    cin >> order_1.order_id;
+    cout << "Enter Customer Name: ";
+    cin >> order_1.customer_name;
+    cout << "Enter Total Amount: ";
+    cin >> order_1.total_amount;
+    cout << "\nChoose Order Status:\n";
+    cout << "0 - Placed" << endl;
+    cout << "1 - Preparing" << endl;
+    cout << "2 - Out for Delivery" << endl;
+    cout << "3 - Delivered" << endl;
+    cout << "Enter your choice: ";
+    cin >> status_choice;
+    if (status_choice == 0)
+    {
+        order_1.status = placed;
+    }
+    else if (status_choice == 1)
+    {    
+        order_1.status = preparing;
+    }
+    else if (status_choice == 2)
+    {    
+        order_1.status = out_for_delivery;
+    }
+    else
+    {
+        order_1.status = delivered;
+    }
+    cout << "Order Summary" << endl;
+    cout << "Order ID: " << order_1.order_id << endl;
+    cout << "Customer: " << order_1.customer_name << endl;
+    cout << "Total Amount: " << order_1.total_amount << endl;
+    if (order_1.status == placed)
+    {
+        cout << "Status: Placed" << endl;
+        cout << "We have recieved your order." << endl;
+    }
+    else if (order_1.status == preparing)
+    {
+        cout << "Status: Preparing" << endl;
+        cout << "Your food is being prepared." << endl;
+    }
+    else if (order_1.status == out_for_delivery)
+    {
+        cout << "Status: Out for Deliver" << endl;
+        cout << "Your food is on the way!" << endl;
+    }
+    else
+    {
+        cout << "Status: Delivered" << endl;
+        cout << "Enjoy your meal!" << endl;
+    }
+    //Practice 60: Soccer Tournament Management System
+    const int team_count = 3;
+    const int players_per_team = 4;
+    const int match_count = 3;
+    player league_players[team_count][players_per_team];
+    team teams[team_count];
+    for (int team_index = 0; team_index <  team_count; team_index++)
+    {
+        cout<< "Enter Team " << team_index + 1 << " name: ";
+        cin >> teams[team_index].team_name;
+    }
+    input_players(league_players, team_count, players_per_team);
+    build_teams(teams, league_players, team_count, players_per_team);
+    input_results(teams, team_count, match_count);
+    display_report(teams, team_count, players_per_team, match_count);
     return 0;
 }
