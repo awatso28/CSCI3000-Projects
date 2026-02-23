@@ -12,6 +12,7 @@ int main()
     int first_reading = distance[0];
     int last_reading = distance[size - 1];
     cout << endl;
+
     //Practice(Secret Pin Attempts)
     const int size_1 = 5;
     int pin[size_1];
@@ -20,5 +21,114 @@ int main()
         cin >> pin[index];
     }
     int third_attempt = pin[2];
+
+
+    //Practice 4: "Gaming Scores" Display
+    int size = 5; 
+    int score[size];
+    cout << "Enter the score: ";
+    for (int index = 0; index < size; index++)
+    {
+        cin >> score[index];
+    }
+    cout << "Scores: ";
+    for (int index = 0; index < size; index++)
+    {
+        cout << score[index] << " ";
+    }
+
+    //Practice 5: Array Bounds Detective
+    int size = 5;
+    int arr[size];
+    for(int index = 0; index < size; index++)
+    {
+        cin >> arr[index];
+    }
+    cout << "Fixed input loop works!" << endl;
+
+    //Practice 6: Step Tracker
+    int size = 5;
+    int steps[size];
+    cout << "Enter the step counts: " << endl;
+    for (int index = 0; index < size; index++)
+    {
+        cin >> steps[index];
+    }
+    cout << "Steps: ";
+    for (int index = 0; index < size; index++)
+    {
+        cout << stpes[index] << " ";
+    }
+    cout << endl;
+    int total = 0;
+    for (int index = 0; index < size; index++)
+    {
+        total += steps[index];
+    }
+    cout << "Total: " << total << endl;
+
+    //Practice 7: Drone Battery Check
+    int size = 5;
+    int battery[size];
+    for (int index = 0; index < size; index++)
+    {
+        cin >> battery[index];
+    }
+    cout << "Battery: ";
+    for (int index = 0; index < size; index++)
+    {
+        cout << battery[index] << " ";
+    }
+    cout << endl;
+    int low_count = 0;
+    for (int index = 0; index < size; index++)
+    {
+        if(battery[index] < 20)
+        {
+            low_count++;
+        }
+    }
+    cout << "Low readinfs (<20%): " << low_count << endl;
+
+    //Practice 8: Cinema Seat Booking
+    int size = 5 ;
+    int seats[size];
+    cout << "Enter the seats: ";
+    for(int index = 0; index < size; index++)
+    {
+        cin >> seats[index];
+    }
+    cout << "Enter the new second seat value to be updated: ";
+    int new_seat;
+    cin >> new_seat;
+    seats[1] = new_seat;
+    cout << "Updated seats: ";
+    for (int index = 0; index < size; index++)
+    {
+        cout << seats[index] << " ";
+    }
+
+    //Practice 9: Road Trip Fuel Costs
+    int size = 5;
+    int cost[size];
+    for (int index = 0l index < size; index++)
+    {
+        cin >> cost[index];;
+    }
+    cout << "Costs: ";
+    for (int index = 0; index < size; index++)
+    {
+        cout << costs[index] << " ";
+    }
+    cout << endl;
+    int max_cost = cost[0];
+    for (int index = 1; index < size; index++)
+    {
+        if(cost[index] > max_cost)
+        {
+            max_cost = cost[index];
+        }
+    }
+    cout << "Highest cost: " max_cost << endl;
     return 0;
 }
