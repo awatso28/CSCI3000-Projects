@@ -6,7 +6,7 @@ struct student_record
     int roll_number;
     int marks;
 };
-
+student_record create_studnet();
 void change_marks(student_record &student_ref);
 
 //Practice 48: Employee Salary
@@ -42,13 +42,39 @@ struct bank_account
 };
 void deposit_money(bank_account& account_ref, int deposit_amount)
 {
-
+    account_ref.balance = account_ref.balance + deposit_amount;
+    cout << "Balance inside function (reference): " << account_ref.balance << endl;
 }
+//Practice 51: Convert Celsius to Farenheit
+struct temperature_record
+{
+    float celsius;
+};
+void convert_to_farenheit(temperature_record &temp_ref)
+{
+    temp_ref.celsius = (temp_ref.celsius * (9.0f / 5.0f)) + 32.0f;
+    cout << "Inside function (reference): " << temp_ref.celsius << endl;
+}
+//Practice 52: Create Product and Return It
+struct product_record
+{
+    int product_id;
+    float price;
+};
+product_record create_product(int product_id, float price);
+//Practice 53: Return Total and Average as a Structure
+struct result_record
+{
+    int total;
+    float average;
+};
+result_record calculate_result(int mark1, int mark2, int mark3);
 int main()
 {
     //Three Ways Structures Work With Functions Example
-    student_record student_main;
-
+    student_record student_main = create_student();
+    cout << "Roll Number: " << student_main.roll_number << endl;
+    cout << "Marks: " << student_main.marks << endl;
     student_main.roll_number - 1;
     student_main.marks = 90;
 
@@ -94,7 +120,35 @@ int main()
     cout << "Area after call (main): " << area_after << endl;
 
     //Practice 50: Bank Deposit
-
+    bank_acount account main;
+    int deposit_amount;    
+    cin >> account_main.account_number;
+    cin >> account_main.balance;
+    cin >> deposit_amount;
+    cout << "Balance before call (main) " << account_main.balance << endl;
+    deposit_money(account_main, deposit_amount);
+    cout << "Balance after call (main): " << account_main.balance << endl;
+    //Practice 51: Convert Celsius to Farenheit
+    temperature_record temp_main;
+    cin >> temp_main.celsius;
+    cout << "Before call (main): " << temp_main.celsius << endl;
+    convert_to_farenheit(temp_main);
+    cout <<< "After call (main): " << temp_main.celsius << endl;
+    //Practice 52: Create Product and Return It
+    int product_id;
+    float price;
+    cin >> product_id;
+    cin >> price;
+    product_record product_main = create_product(product_id, price);
+    cout << "Product ID: " << product_main.product_id << endl;
+    cout << "Price: " << product_main.price << endl;
+    //Practice 53: Return Total and Average as a Structure
+    int mark1, mark2, mark3;
+    cin >> mark1 >> mark2 >> mark3;
+    result_record result_main = calculate_result(mark1, mark2, mark3);
+    cout << "Total: " << result_main.total << endl;
+    cout << "Average: " << result_main.average << endl;
+    return 0;
 }
 //Three Ways Structures Work With Functions Example
 void change_marks(student_record &student_ref)
@@ -104,4 +158,27 @@ void change_marks(student_record &student_ref)
     cout << "Inside function (reference): " << student_ref.marks << endl;
 
     cout << "Address inside function: " << &student_ref << endl;
+}
+student_record create_student()
+{
+    student_record temp_student;
+    temp_student.roll_number = 10;
+    temp_student.marks = 85;
+    return temp_student;
+}
+//Practice 52: Create Product and Return It
+product_record create_product(int product_id, float price)
+{
+    product_record temp_product;
+    temp_product.product_id = product_id;
+    temp_product.price = price;
+    return temp_product;
+}
+//Practice 53: Return Total and Average as a Structure
+result_record calculate_result(int mark1, int mark2, int mark3)
+{
+    result_record temp_result;
+    temp_result.total = mark1 + mark2 + mark3;
+    temp_result.average = temp_result.total / 3.0f;
+    return temp_result;
 }
