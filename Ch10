@@ -1,0 +1,82 @@
+#include <iostream>
+using namespace std;
+//Practice 69: Student Quiz Score Validator
+class QuizResult 
+{
+private:
+    int score;
+public:
+    void set_score(int new_score)
+    {
+        if (new_score >= 0 && new_score <= 100)
+        {
+            score = new_score;
+        }
+        else
+        {
+            cout << "Invalid score!" << endl;
+        }
+    }
+    int get_score()
+    {
+        return score;
+    }
+};
+
+//Practice 70: E-Wallet Top-Up and Spending Guard
+class EWallet
+{
+private:
+    int balance;
+public:
+    EWallet()
+    {
+        balance = 0;
+    }
+    void set_balance(int bal)
+    {
+        if (bal >= 0)
+        {
+            balance = bal;
+        }
+        else
+        {
+            cout << "Invalid balance!" << endl;
+        }
+    }
+    int get_balance()
+    {
+        return balance;
+    }
+    void spend(int amount)
+    {
+        if (amount > 0 && amount <= balance)
+        {
+            balance -= amount;
+        }
+        else
+        {
+            cout << "Payment declined!" << endl;
+        }
+    }
+};
+int main()
+{
+    //Practice 69: Student Quiz Score Validator
+    QuizResult quiz;
+    int input_score;
+    cin >> input_score;
+    quiz.set_score(input_score);
+    cout << "Final score: " << quiz.get_score() << endl;
+
+    //Practice 70: E-Wallet Top-Up and Spending Guard
+    EWallet wallet;
+    int initial_balance;
+    int spend_amount;
+    cin >> initial_balance;
+    cin >> spend_amount;
+    wallet.set_balance(initial_balance);
+    wallet.spend(spend_amount);
+    cout << "Final Balance: " << wallet.get_balance() << endl;
+    return 0;
+}
