@@ -1,0 +1,295 @@
+#include <iostream>
+#include <string>
+using namespace std;
+//Full Example Program (Slide 12)
+class BankAccount
+{
+private:
+    float balance;
+public:
+    void setBalance(float bal);
+    float getBalance();
+};
+void BankAccount::setBalance(float bal)
+{
+    if (bal >= 0)
+    {
+        balance = bal;
+    }
+}
+float BankAccount::getBalance()
+{
+    return balance;
+}
+
+//Practice 75: Book Record System
+class Book
+{
+private:
+    string book_title;
+    float book_price;
+public:
+    void setBook(string title, float price);
+    void displayBook();
+};
+void Book::setBook(string title, float price)
+{
+    book_title = title;
+    book_price = price;
+}
+void Book::displayBook()
+{
+    cout << "Book Title: " << book_title << endl;
+    cout << "Book Price: " << book_price << endl;
+}
+
+//Constructor Example Program (Slide 35)
+class BankAccount1
+{
+private:
+    float balance;
+public:
+    BankAccount1();
+    void displayBalance();
+};
+BankAccount1::BankAccount1()
+{
+    balance = 0;
+}
+void BankAccount1::displayBalance()
+{
+    cout << "Balance: " << balance << endl;
+}
+
+//Practice 76: Student Name
+class Student
+{
+private:
+    string student_name;
+public:
+    Student();
+    void displayName();
+};
+Student::Student()
+{
+    student_name = "Unknown";
+}
+void Student::displayName()
+{
+    cout << "Name: " << student_name << endl;
+}
+
+//Parameterized Constructor Example
+class BankAccount2
+{
+private:
+    float balance;
+public:
+    BankAccount2(float bal)
+    {
+        balance = bal;
+    }
+    void displayBalance()
+    {
+        cout << "Balance: " << balance << endl;
+    }
+};
+
+//Practice 77: Bank Account Initialization
+class Bank_Account
+{
+private:
+    float balance;
+public:
+    Bank_Account(float bal);
+    void display_Balance();
+};
+Bank_Account::Bank_Account(float bal)
+{
+    balance = bal;
+}
+void Bank_Account::display_Balance()
+{
+    cout << balance << endl;
+}
+
+//Practice 78: Product Price
+class Product
+{
+private:
+    string product_name;
+    float product_price;
+public:
+    void setProduct(string product_name, float product_price)
+    {
+        this->product_name = product_name;
+        this->product_price = product_price;
+    }
+    void displayProduct()
+    {
+        cout << "Product Name: " << product_name << endl;
+        cout << "Product Price: " << product_price << endl;
+    }
+};
+
+//const Function Example (slide 91)
+class Bankaccount
+{
+private:
+    float balance;
+public:
+    void setBalance(float balance);
+    float getBalance() const;
+};
+void Bankaccount::setBalance(float balance)
+{
+    this->balance = balance;
+}
+float Bankaccount::getBalance() const
+{
+    return balance;
+}
+
+//Practice 79: Movie Record
+class Movie
+{
+private:
+    string movie_name;
+    float ticket_price;
+public:
+    void setMovie(string name, float price);
+    void displayMovie();
+};
+void Movie::setMovie(string name, float price)
+{
+    this->movie_name = name;
+    this->ticket_price = price;
+}
+void Movie::displayMovie()
+{
+    cout << "Movie Name: " << movie_name << endl;
+    cout << "Movie Price: " << ticket_price << endl;
+}
+//Practice 80: City Name Default Constructor
+class City
+{
+private: 
+    string city_name;
+public:
+    City();
+    void displayCity();
+};
+City::City()
+{
+    city_name = "Montgomery";
+}
+void City::displayCity()
+{
+    cout << "City: " << city_name << endl;
+}
+
+//Practice 81: Laptop Price Initialization
+class Laptop
+{
+private:
+    float laptop_price;
+public:
+    Laptop(float price);
+    void displayPrice();
+};
+Laptop::Laptop(float price)
+{
+    laptop_price = price;
+}
+void Laptop::displayPrice()
+{
+    cout << "Laptop Price: " << laptop_price << endl;
+}
+
+//Practice 82: Employee Name Using this
+int main()
+{
+    //Full Example Program (Slide 12)
+    BankAccount account;
+    account.setBalance(500);
+    cout << "Balance: " << account.getBalance() << endl;
+
+    //Practice 75: Book Record System
+    Book my_book;
+    string input_title;
+    float input_price;
+    cout << "Enter book title: ";
+    getline(cin, input_title);
+    cout << "Enter book price: ";
+    cin >> input_price;
+    my_book.setBook(input_title, input_price);
+    my_book.displayBook();
+
+    //Constructor Example Program (Slide 35)
+    BankAccount1 account1;
+    account1.displayBalance();
+
+    //Practice 76: Student Name
+    Student student;
+    student.displayName();
+
+    //Parameterized Constructor Example
+    BankAccount2 account2(500);
+    account2.displayBalance();
+
+    //Practice 77: Bank Account Initialization
+    Bank_Account account_a(500);
+    Bank_Account account_b(1200);
+    Bank_Account account_c(50);
+    cout << "Account A Balance: ";
+    account_a.display_Balance();
+    cout << "Account B Balance: ";
+    account_b.display_Balance();
+    cout << "Account C Balance: ";
+    account_c.display_Balance();
+
+    //Practice 78: Product Price
+    Product product;
+    string inputname;
+    float inputprice;
+    cout << "Enter product name: ";
+    getline(cin, inputname);
+    cout << "Enter the product's price: ";
+    cin >> inputprice;
+    product.setProduct(inputname, inputprice);
+    product.displayProduct();
+
+    //const Function Example (slide 91)
+    Bankaccount account3;
+    account3.setBalance(500);
+    cout << "Balance: " << account3.getBalance() << endl;
+
+    //Practice 79: Movie Record
+    Movie movie;
+    string input_name1;
+    float input_price1;
+    cout << "Enter movie name: ";
+    getline(cin, input_name1);
+    cout << "Enter movie price: ";
+    cin >> input_price1;
+    movie.setMovie(input_name1, input_price1);
+    movie.displayMovie();
+
+    //Practice 80: City Name Default Constructor
+    City city;
+    city.displayCity();
+
+    //Practice 81: Laptop Price Initialization
+    Laptop laptop_a(45000);
+    Laptop laptop_b(62000);
+    Laptop laptop_c(81000);
+    cout << "Laptop A Price: ";
+    laptop_a.displayPrice();
+    cout << "Laptop B Price: ";
+    laptop_b.displayPrice();
+    cout << "Laptop C Price: ";
+    laptop_c.displayPrice();
+
+    //Practice 82: Employee Name Using this
+    return 0;
+}
