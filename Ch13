@@ -1,0 +1,166 @@
+#include <iostream>
+#include <string>
+using namespace std;
+//Practice 97: Student ID Card System
+class Person
+{
+private:
+    int person_age;
+public:
+    void setAge(int age_value)
+    {
+        person_age = age_value;
+    }
+    int getAge()
+    {
+        return person_age;
+    }
+};
+class Student : public Person
+{
+private:
+    string student_name;
+public:
+    void setName(string name_value)
+    {
+        student_name = name_value;
+    }
+    void displayCard()
+    {
+        cout << "------ Student ID Card ------" << endl;
+        cout << "Name: " << student_name << endl;
+        cout << "Age: " << getAge() << endl;
+        cout << "Status: Active Student" << endl;
+    }
+};
+
+//Practice 98: Secret Game Score Tracker
+class Game
+{
+private:
+    int game_score;
+public:
+    void setScore(int score_value)
+    {
+        game_score = score_value;
+    }
+    int getScore()
+    {
+        return game_score;
+    }
+};
+class Player : public Game
+{
+private:
+    string player_name;
+public:
+    void setPlayerName(string name_value)
+    {
+        player_name = name_value;
+    }
+    void displayResult()
+    {
+        cout << "----- Game Result -----" << endl;
+        cout << "Player: " << player_name << endl;
+        cout << "Score: " << getScore() << endl;
+        if (getScore() >= 80)
+        {
+            cout << "Level: Winner Zone" << endl;
+        }
+        else
+        {
+            cout << "Level: Keep Practicing" << endl;
+        }
+    }
+};
+
+//Practice 99: Smart Hospital Patient Management System
+class Person
+{
+private:
+    int age;
+    string gender;
+public:
+    
+};
+class Patient : public Person
+{
+private:
+    string patient_name;
+    string disease_name;
+    string doctor_name;
+    int room_number;
+    int days_admitted;
+    int bill_amount;
+public:
+    void displayRecord()
+    {
+        cout << "==================================" << endl;
+        cout << "      SMART HOSPITAL RECORD" << endl;
+        cout << "==================================" << endl;
+        cout << "Patient Name: " << patient_name << endl;
+        cout << "Age: " << endl;
+        cout << "Gender: " << endl;
+        cout << "Disease: " << disease_name << endl;
+        cout << "Doctor Assigned: " << doctor_name << endl;
+        cout << "Room Number: " << room_number << endl;
+        cout << "Days Admitted: " << days_admitted << endl;
+        cout << "Bill Amount: " << bill_amount << endl;
+        if (days_admitted > 7)
+        {
+            cout << "Admission Type: Long Stay" << endl;
+        }
+        else
+        {
+            cout << "Admission Type: Short Stay" << endl;
+        }
+        if (bill_amount >= 5000)
+        {
+            cout << "Bill Status: High Bill Case" << endl;
+        }
+        else
+        {
+            cout << "Bill Status: Regular Bill Case" << endl;
+        }
+        cout << "Advice: " << endl;
+        cout << "==================================" << endl;
+    }
+};
+int main()
+{
+    //Practice 97: Student ID Card System
+    Student student;
+    string input_name;
+    int input_age;
+    cout << "Enter student name: ";
+    getline(cin, input_name);
+    cout << "Enter age: ";
+    cin >> input_age;
+    student.setName(input_name);
+    student.getAge(input_age);
+    student.displayCard();
+
+    //Practice 98: Secret Game Score Tracker
+    Player player;
+    string input_name;
+    int input_score;
+    cout << "Enter player name: ";
+    getline(cin, input_name);
+    cout << "Enter score: ";
+    cin >> input_score;
+    player.setPlayerName(input_name);
+    player.setScore(input_score);
+    player.displayResult();
+
+    //Practice 99: Smart Hospital Patient Management System
+    Patient patient;
+    cout << "Enter patient name: ";
+    cout << "Enter age: ";
+    cout << "Enter gender: ";
+    cout << "Enter disease: ";
+    cout << "Enter doctor name: ";
+    cout << "Enter room number: ";
+    cout << "Enter days admitted: ";
+    cout << "Enter bill amount: ";
+    patient.displayRecord();
+}
