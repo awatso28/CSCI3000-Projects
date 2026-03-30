@@ -1,0 +1,233 @@
+#include <iostream>
+using namespace std;
+//Function Overloading Example
+class Calculator
+{
+public:
+    int add(int first_number, int second_number)
+    {
+        return first_number + second_number;
+    }
+    double add(double first_number, double second_number)
+    {
+        return first_number + second_number;
+    }
+};
+
+//Practice 101: Smart Restaurant Bill Calculator
+class BillCalculator
+{
+public: 
+    int calculateBill(int burger_price, int pizza_price)
+    {
+        return burger_price + pizza_price;
+    }
+    double calculateBill(double food_total, double tax_rate)
+    {
+        return food_total + (food_total * tax_rate);
+    }
+    double calculateBill(double food_total, double tax_rate, double discount)
+    {
+        return (food_total + (food_total * tax_rate)) - discount;
+    }
+};
+
+//Practice 102: Student Result Analyzer
+class ResultAnalyzer
+{
+public:
+    int calculateResult(int mark1, int mark2)
+    {
+        return mark1 + mark2;
+    }
+    int calculateResult(int mark1, int mark2, int mark3)
+    {
+        return mark1 + mark2 + mark3;
+    }
+    double calculateResult(double total_marks, int subjects)
+    {
+        return total_marks / subjects;
+    }
+};
+
+//Operator Overloading Example
+class Box
+{
+public:
+    int value;
+    Box operator+(Box second_box)
+    {
+        Box result_box;
+        result_box.value = value + second_box.value;
+        return result_box;
+    }
+};
+
+//Practice 103:Box Storage Divider
+class StorageBox
+{
+private:
+    int item_count;
+public:
+    void set_item_count(int count)
+    {
+        item_count = count;
+    }
+    int get_item_count()
+    {
+        return item_count;
+    }
+    StorageBox operator/(int divisor)
+    {
+        StorageBox result_box;
+        if (divisor != 0)
+        {
+            result_box.item_count = item_count / divisor;
+        }
+        else
+        {
+            cout << "Error, you divised by 0." << endl;
+            result_box.item_count = 0;
+        }
+        return result_box;
+    }
+};
+
+//Practice 104: Bank Balance Comparison
+class BankAccount
+{
+private:
+    int balance;
+public:
+    void set_balance(double amount)
+    {
+        balance - amount;
+    }
+    bool operator==(BankAccount second_account)
+    {
+        if (balance == second_account.balance)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+};
+
+//Function Overriding Example
+class Animal
+{
+public:
+    void makeSound()
+    {
+        cout << "Animal sound\n";
+    }
+};
+class Dog : public Animal
+{
+public:
+    void makeSound()
+    {
+        cout << "Bark\n";
+    }
+};
+int main()
+{
+    //Function Overloading Example
+    Calculator calculator_object;
+    int integer_sum;
+    double decimal_sum;
+    integer_sum = calculator_object.add(10, 20);
+    decimal_sum = calculator_object.add(5.5, 2.3);
+    cout << "Sum of integers: " << integer_sum << endl;
+    cout << "Sum of decimal numbers: " << decimal_sum << endl;
+
+    //Practice 101: Smart Restaurant Bill Calculator
+    BillCalculator calculator;
+    int burger_price;
+    int pizza_price;
+    double tax_rate;
+    double discount;
+    cout << "Enter burger price: $";
+    cin >> burger_price;
+    cout << "Enter pizza price: $";
+    cin >> pizza_price;
+    cout << "Enter tax rate: ";
+    cin >> tax_rate;
+    cout << "Enter discount: ";
+    cin >> discount;
+    int food_total = calculator.calculateBill(burger_price, pizza_price);
+    double total_with_tax = calculator.calculateBill((double)food_total, tax_rate);
+    double final_total = calculator.calculateBill((double)food_total, tax_rate, discount);
+    cout << "Food Total: $" << food_total << endl;
+    cout << "Total with Tax: $" << total_with_tax << endl;
+    cout << "Total after Tax and Discount: $" << final_total << endl;
+
+    //Practice 102: Student Result Analyzer
+    ResultAnalyzer analyzer;
+    int mark1;
+    int mark2;
+    int mark3;
+    cout << "Enter mark 1: ";
+    cin >> mark1;
+    cout << "Enter mark 2: ";
+    cin >> mark2;
+    cout << "Enter mark 3: ";
+    cin >> mark3;
+    int total_two = analyzer.calculateResult(mark1, mark2);
+    int total_three = analyzer.calculateResult(mark1, mark2, mark3);
+    double average = analyzer.calculateResult((double)total_three, 3);
+    cout << "Total of 2 subjects: " << total_two << endl;
+    cout << "Total of 3 subjects: " << total_three << endl;
+    cout << "Average marks: " << average << endl;
+
+    //Operator Overloading Example
+    Box box1;
+    Box box2;
+    Box box3;
+    box1.value = 10;
+    box2.value = 20;
+    box3 = box1 + box2;
+    cout << "Result value: " << box3.value << endl;
+
+    //Practice 103:Box Storage Divider
+    StorageBox box_1;
+    StorageBox box_2;
+    int count;
+    int divisor;
+    cout << "Enter number of items: ";
+    cin >> count;
+    cout << "Enter your divisor: ";
+    cin >> divisor;
+    box_1.set_item_count(count);
+    box_2 = box_1 / divisor;
+    cout << "Items after division: " << box_2.get_item_count() << endl;
+
+    //Practice 104: Bank Balance Comparison
+    BankAccount account1;
+    BankAccount account2;
+    double balance1;
+    double balance2;
+    cout << "Enter balance of account 1: ";
+    cin >> balance1;
+    cout << "Enter balance of account 2: ";
+    cin >> balance2;
+    account1.set_balance(balance1);
+    account2.set_balance(balance2);
+    if (account1 == account2)
+    {
+        cout << "Both account have the same balance." << endl;
+    }
+    else
+    {
+        cout << "The accounts have different balances." << endl;
+    }
+
+    //Function Overriding Example
+    Animal* animal_pointer;
+    Dog dog;
+    animal_pointer = &dog;
+    animal_pointer->makeSound();
+}
