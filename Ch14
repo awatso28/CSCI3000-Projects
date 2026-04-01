@@ -101,7 +101,7 @@ private:
 public:
     void set_balance(double amount)
     {
-        balance - amount;
+        balance = amount;
     }
     bool operator==(BankAccount second_account)
     {
@@ -131,6 +131,91 @@ public:
     void makeSound()
     {
         cout << "Bark\n";
+    }
+};
+
+//Practice 105: Hospital Staff Role Display
+class Staff
+{
+public:
+    void showRole()
+    {
+        cout << "Staff works in the hospital." << endl;
+    }
+};
+class Doctor : public Staff
+{
+public:
+    void showRole()
+    {
+        cout << "Doctor treats patients and gives prescriptions." << endl;
+    }
+};
+class Nurse : public Staff
+{
+public:
+    void showRole()
+    {
+        cout << "Nurse cares for patients and assists doctors;" << endl;
+    }
+};
+
+//Practice 106: Vehicle Information System
+class Vehicle
+{
+public:
+    void showType()
+    {
+        cout << "Vehicle is used for transportation." << endl;
+    }
+};
+class Car : public Vehicle
+{
+public:
+    void showType()
+    {
+        cout << "Car is a four-wheeler vehicle." << endl;
+    }
+};
+class Bike : public Vehicle
+{
+public:
+    void showType()
+    {
+        cout << "Bike is a two-wheeler vehicle." << endl;
+    }
+};
+
+//Practice 107: Employee Salary Combiner
+class EmployeeSalary
+{
+private:
+    double salary;
+public:
+    void set_salary(double amount)
+    {
+        salary = amount;
+    }
+    double get_salary()
+    {
+        return salary;
+    }
+    EmployeeSalary operator+(EmployeeSalary second_employee)
+    {
+        EmployeeSalary result_employee;
+        result_employee.salary = salary + second_employee.salary;
+        return result_employee;
+    }
+    bool operator>(EmployeeSalary second_employee)
+    {
+        if (salary > second_employee.salary)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 };
 int main()
@@ -230,4 +315,43 @@ int main()
     Dog dog;
     animal_pointer = &dog;
     animal_pointer->makeSound();
+
+    //Practice 105: Hospital Staff Role Display
+    Doctor doc;
+    Nurse nurse;
+    doc.showRole();
+    nurse.showRole();
+
+    //Practice 106: Vehicle Information System
+    Car car;
+    Bike bike;
+    Vehicle* vehicle_pointer;
+    car.showType();
+    bike.showType();
+    vehicle_pointer = &car;
+    vehicle_pointer->showType();
+
+    //Practice 107: Employee Salary Combiner
+    EmployeeSalary employee1;
+    EmployeeSalary employee2;
+    EmployeeSalary total_employee_salary;
+    double salary1;
+    double salary2;
+    cout << "Enter salary of employee 1: ";
+    cin >> salary1;
+    cout << "Enter salary of employee 2: ";
+    cin >> salary2;
+    employee1.set_salary(salary1);
+    employee2.set_salary(salary2);
+    total_employee_salary = employee1 + employee2;
+    cout << "Total salary: " << total_employee_salary.get_salary() << endl;
+    if (employee1 > employee2)
+    {
+        cout << "First employee has higher salary." << endl;
+    }
+    else
+    {
+        cout << "Second employee has higher salary." << endl;
+    }
+    return 0;
 }
