@@ -207,6 +207,114 @@ void Laptop::displayPrice()
 }
 
 //Practice 82: Employee Name Using this
+class Employee
+{
+private:
+    string employee_name;
+    float employee_salary;
+public:
+    void setEmployee(string employee_name, float employee_salary);
+    void displayEmployee();
+};
+void Employee::setEmployee(string employee_name, float employee_salary)
+{
+    this->employee_name = employee_name;
+    this->employee_salary = employee_salary;
+}
+void Employee::displayEmployee()
+{
+    cout << "Employee Name: " << employee_name << endl;
+    cout << "Employee Salary: " << employee_salary << endl;
+}
+
+//Practice 83: Exam Marks with const Getter
+class Exam
+{
+private:
+    float marks;
+public:
+    void setMarks(float marks);
+    float getMarks() const;
+};
+void Exam::setMarks(float marks)
+{
+    this->marks = marks;
+}
+float Exam::getMarks() const
+{
+    return marks;
+}
+
+//Practice 84: Fan Default + Setter + Const Getter
+class Fan
+{
+private:
+    float speed;
+public:
+    Fan();
+    void setSpeed(float speed);
+    float getSpeed() const;
+};
+Fan::Fan()
+{
+    speed = 0;
+}
+void Fan::setSpeed(float speed)
+{
+    this->speed = speed;
+}
+float Fan::getSpeed() const
+{
+    return speed;
+}
+
+//Practice 85: Bus Seat Number with Parameterized Constructor and Const Getter
+class BusSeat
+{
+private:
+    int seat_number;
+public:
+    BusSeat(int seat);
+    int getSeatNumber() const;
+};
+BusSeat::BusSeat(int seat)
+{
+    seat_number = seat;
+}
+int BusSeat::getSeatNumber() const
+{
+    return seat_number;
+}
+
+//Practice 86: Mobile Record Combined Practice
+class Mobile
+{
+private:
+    string brand_name;
+    float mobile_price;
+public:
+    Mobile(string brand, float price);
+    void setPrice(float mobile_price);
+    string getBrand() const;
+    float getPrice() const;
+};
+Mobile::Mobile(string brand, float price)
+{
+    brand_name = brand;
+    mobile_price = price;
+}
+void Mobile::setPrice(float mobile_price)
+{
+    this->mobile_rpice = mobile_price;
+}
+string Mobile::getBrand() const
+{
+    return brand_name;
+}
+float Mobile::getPrice() const
+{
+    return mobile_price;
+}
 int main()
 {
     //Full Example Program (Slide 12)
@@ -291,5 +399,40 @@ int main()
     laptop_c.displayPrice();
 
     //Practice 82: Employee Name Using this
+    Employee my_employee;
+    string input_name;
+    float input_salary;
+    cout << "Enter employee name: ";
+    getline(cin, input_name);
+    cout << "Enter employee salary: ";
+    getline(cin, input_salary);
+    my_employee.setEmployee(input_name, input_salary);
+    my_employee.displayEmployee();
+
+    //Practice 83: Exam Marks with const Getter
+    Exam my_exam;
+    float input_marks;
+    cout << "Enter marks: ";
+    cin >> input_marks;
+    my_exam.setMarks(input_marks);
+    cout << "Marks: " << my_exam.getMarks() << endl;
+
+    //Practice 84: Fan Default + Setter + Const Getter
+    Fan my_fan;
+    float input_speed;
+    cout << "Enter fan speed: ";
+    cin >> input_speed;
+    my_fan.setSpeed(input_speed);
+    cout << "Fan Speed: " << my_fan.getSpeed() << endl;
+
+    //Practice 85: Bus Seat Number with Parameterized Constructor and Const Getter
+    BusSeat my_seat(12);
+    cout << "Seat Number: " << my_seat.getSeatNumber() << endl;
+
+    //Practice 86: Mobile Record Combined Practice
+    Mobile my_mobile("Samsun", 25000);
+    my_mobile.setPrice(27000);
+    cout << "Brand: " << my_mobile.getBrand() << endl;
+    cout << "Price: " << my_mobile.getPrice() << endl;
     return 0;
 }
