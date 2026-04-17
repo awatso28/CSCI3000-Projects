@@ -218,6 +218,225 @@ public:
         }
     }
 };
+
+//Virtual Function Example
+class Animal
+{
+public:
+    virtual void makeSound()
+    {
+        cout << "Animal sound\n";
+    }
+};
+class Dog : public Animal
+{
+public:
+    void makeSound()
+    {
+        cout << "Bark\n";
+    }
+};
+
+//Practice 108: Smart Delivery Notification System
+class Notification
+{
+public:
+    virtual void sendMessage()
+    {
+        cout << "Sending General Notification" << endl;
+    }
+};
+class EmailNotification : public Notification
+{
+public:
+    void sendMessage()
+    {
+        cout << "Sending Email Notification" << endl;
+    }
+};
+class SMSNotification : public Notification
+{
+public:
+    void sendMessage()
+    {
+        cout << "Sending SMS Notification" << endl;
+    }
+};
+
+//Practice 109: Online Food Order Tracking
+class OrderStatus
+{
+public:
+    virtual void showStatus()
+    {
+        cout << "Order status unavaliable" << endl;
+    }
+};
+class Preparing : public OrderStatus
+{
+public:
+    void showStatus()
+    {
+        cout << "Order is being prepared" << endl;
+    }
+};
+class OutForDelivery : public OrderStatus
+{
+public:
+    void showStatus()
+    {
+        cout << "Order is out for delivery" << endl;
+    }
+};
+class Delivered : public OrderStatus
+{
+public:
+    void showStatus()
+    {
+        cout << "Order has been delivered" << endl;
+    }
+};
+
+//Practice 110: Smart Home Appliance Control
+class Appliance
+{
+public:
+    virtual void turnOn() = 0;
+};
+class Fan : public Appliance
+{
+public:
+    void turnOn()
+    {
+        cout << "Fan starts rotating" << endl;
+    }
+};
+class AirConditioner : public Appliance
+{
+public:
+    void turnOn()
+    {
+        cout << "Air conditioner starts cooling" << endl;
+    }
+};
+
+//Practice 111: Digital Learning Platform
+class Course
+{
+public:
+    virtual void startClass() = 0;
+};
+class ProgrammingCourse : public Course
+{
+public:
+    void startClass()
+    {
+        cout << "Programming class has started" << endl;
+    }
+};
+class MAthCourse : public Course
+{
+public:
+    void startClass()
+    {
+        cout << "Math class has started" << endl;
+    }
+};
+
+//Practice 112: Ride Booking Application
+class Ride
+{
+public:
+    virtual void bookRide() = 0;
+};
+class BikeRide : public Ride
+{
+public:
+    void bookRide()
+    {
+        cout << "Bike ride booked successfully" << endl;
+    }
+};
+class CarRide : public Ride
+{
+public:
+    void bookRide()
+    {
+        cout << "Car ride booked successfully" << endl;
+    }
+};
+
+//Practice 113: Smart E-Commerce Billing and Payment Management System
+class BillCalculator {
+public:
+    int calculateBill(int product_price, int shipping_charge) {
+        return product_price + shipping_charge;
+    }
+    double calculateBill(double product_price, double tax_rate) {
+        return product_price + (product_price * tax_rate);
+    }
+    double calculateBill(double product_price, double tax_rate, double discount) {
+        return (product_price + (product_price * tax_rate)) - discount;
+    }
+};
+class PaymentMethod {
+protected:
+    string customer_name;
+    double amount;
+    string transaction_id;
+public:
+    void setPaymentDetails(string name, double payment_amount, string id) {
+        customer_name = name;
+        amount = payment_amount;
+        transaction_id = id;
+    }
+    void displayPaymentDetails() {
+        cout << "\n--- PAYMENT DETAILS ---" << endl;
+        cout << "Customer Name: " << customer_name << endl;
+        cout << "Transaction ID: " << transaction_id << endl;
+        cout << "Amount: " << amount << endl;
+    }
+    virtual void pay() = 0;
+};
+class UPIPayment : public PaymentMethod {
+private:
+    string upi_id;
+public:
+    void setUPIDetails(string id) {
+        upi_id = id;
+    }
+    void pay() {
+        cout << "\nPayment Method: UPI" << endl;
+        cout << "UPI ID: " << upi_id << endl;
+        cout << "UPI payment successful" << endl;
+    }
+};
+class CardPayment : public PaymentMethod {
+private:
+    string bank_name;
+public:
+    void setCardDetails(string bank) {
+        bank_name = bank;
+    }
+    void pay() {
+        cout << "\nPayment Method: Card" << endl;
+        cout << "Bank Name: " << bank_name << endl;
+        cout << "Card payment successful" << endl;
+    }
+};
+class WalletPayment : public PaymentMethod {
+private:
+    string wallet_name;
+public:
+    void setWalletDetails(string wallet) {
+        wallet_name = wallet;
+    }
+    void pay() {
+        cout << "\nPayment Method: Wallet" << endl;
+        cout << "Wallet Name: " << wallet_name << endl;
+        cout << "Wallet payment successful" << endl;
+    }
+};
 int main()
 {
     //Function Overloading Example
@@ -353,6 +572,92 @@ int main()
     {
         cout << "Second employee has higher salary." << endl;
     }
+
+    //Virtual Function Example
+    Animal *animal_pointer;
+    Dog dog_object;
+    animal_pointer = &dog_object;
+    animal_pointer->makeSound();
+
+    //Practice 108: Smart Delivery Notification System
+    Notification *notification_pointer;
+    EmailNotification email;
+    SMSNotification sms;
+    notification_pointer = &email;
+    notification_pointer->sendMessage();
+    notification_pointer = &sms;
+    notification_pointer->sendMessage();
+
+    //Practice 109: Online Food Order Tracking
+    OrderStatus *status_pointer;
+    Preparing preparing;
+    OutForDelivery out_for_delivery;
+    Delivered delivered;
+    status_pointer = &preparing;
+    status_pointer->showStatus();
+    status_pointer = &out_for_delivery;
+    status_pointer->showStatus();
+    status_pointer = &delivered;
+    status_pointer->showStatus();
+
+    //Practice 110: Smart Home Appliance Control
+    Fan fan;
+    AirConditioner air_conditioner;
+    fan.turnOn();
+    air_conditioner.turnOn();
+
+    //Practice 111: Digital Learning Platform
+    Course *course_pointer;
+    ProgrammingCourse programming;
+    MathCourse math;
+    course_pointer = &programming;
+    course_pointer->startClass();
+    course_pointer = &math;
+    course_pointer->startClass();
+
+    //Practice 112: Ride Booking Application
+    Ride *ride_pointer;
+    BikeRide bike;
+    CarRide car;
+    ride_pointer = &bike;
+    ride_pointer->bookRide();
+    ride_pointer = &car;
+    ride_pointer->bookRide();
+
+    //Practice 113: Smart E-Commerce Billing and Payment Management System
+    BillCalculator bill_object;
+    string customer_name;
+    int product_price;
+    int shipping_charge;
+    double tax_rate;
+    double discount;
+    string upi_id;
+    string bank_name;
+    string wallet_name;
+    cout << "Enter customer name: ";
+    getline(cin, customer_name);
+    cout << "Enter product price: ";
+    cin >> product_price;
+    cout << "Enter shipping charge: ";
+    cin >> shipping_charge;
+    cout << "Enter tax rate: ";
+    cin >> tax_rate;
+    cout << "Enter discount: ";
+    cin >> discount;
+    cin.ignore();
+    cout << "Enter UPI ID: ";
+    getline(cin, upi_id);
+    cout << "Enter bank name: ";
+    getline(cin, bank_name);
+    cout << "Enter wallet name: ";
+    getline(cin, wallet_name);
+    int total_with_shipping = bill_object.calculateBill(product_price, shipping_charge);
+    double total_with_tax = bill_object.calculateBill((double)product_price, tax_rate);
+    double final_total = bill_object.calculateBill((double)product_price, tax_rate, discount);
+    cout << "\n--- BILL DETAILS ---" << endl;
+    cout << "Customer Name: " << customer_name << endl;
+    cout << "Total using product price and shipping: " << total_with_shipping << endl;
+    cout << "Total using product price and tax: " << total_with_tax << endl;
+    cout << "Total using product price, tax, and discount: " << final_total << endl;
     return 0;
 }
-
