@@ -81,7 +81,22 @@ private:
     int age;
     string gender;
 public:
-    
+    void setAge(int age_value)
+    {
+        person_age = age_value;
+    }
+    int getAge()
+    {
+        return person_age;
+    }
+    void setGender(string gender_value)
+    {
+        person_gender = gender_value;
+    }
+    string getGender()
+    {
+        return person_gender;
+    }
 };
 class Patient : public Person
 {
@@ -93,6 +108,15 @@ private:
     int days_admitted;
     int bill_amount;
 public:
+    void setPatientDetails(string name_value, string disease_value, string doctor_value, int room_value, int days_value, double bill_value)
+    {
+        patient_name = name_value;
+        disease_name = disease_value;
+        doctor_name = doctor_value;
+        room_number = room_value;
+        days_Admitted = days_value;
+        bill_amount = bill_value;
+    }
     void displayRecord()
     {
         cout << "==================================" << endl;
@@ -126,6 +150,103 @@ public:
         cout << "==================================" << endl;
     }
 };
+
+//Practice 100: Adventure Theme Park Premium Pass System
+class Visitor
+{
+private:
+    int visitor_id;
+    string visitor_city;
+public:
+    void setVisitorId(int id_value)
+    {
+        visitor_id = id_value;
+    }
+    int getVisitorId()
+    {
+        return visitor_id;
+    }
+    void setCity(string city_value)
+    {
+        visitor_city = city_value;
+    }
+    string getCity()
+    {
+        return visitor_city;
+    }
+};
+class PremiumVisitor : public Visitor
+{
+private:
+    string visitor_name;
+    string pass_type;
+    int rides_selected;
+    int guest_count;
+    double total_spending;
+    string locker_required;
+public:
+    void setPremiumDetails(string name_value, string pass_value, int rides_value, int guest_value, double spending_value, string locker_value)
+    {
+        visitor_name = name_value;
+        pass_type = pass_value;
+        rides_selected = rides_value;
+        guest_count = guest_value;
+        total_spening = spending_value;
+        locker_required = locker_value;
+    }
+    string getLoungeAccess()
+    {
+        if(guest_count > 3)
+        {
+            return "Yes";
+        }
+        else
+        {
+            return "No";
+        }
+    }
+    string getFoodCouponStatus()
+    {
+        if(total_Spending >= 3000)
+        {
+            return "Eligible";
+        }
+        else
+        {
+            return "Not Eligible";
+        }
+    }
+    string getVisitorCategory()
+    {
+        if(pass_type == "Gold" || pass_type == "Platinum")
+        {
+            return "Premium Fast Track";
+        }
+        else
+        {
+            return "Standard Premium";
+        }
+    }
+    void displayPremiumPass()
+    {
+        cout << "******************************************************" << endl;
+        cout << "            ADVENTURE PARK PREMIUM PASS" << endl;
+        cout << "******************************************************" << endl;
+        cout << "Visitor Name: " << visitor_name << endl;
+        cout << "Visitor ID: " << getVisitorId() << endl;
+        cout << "City: << getCity() << endl;
+        cout << "Pass Type: " << pass_type << endl;
+        cout << "Rides Selected: " << rides_selected << endl;
+        cout << "Guest Count: " << guest_count << endl;
+        cout << "Total Spending: " << total_spending << endl;
+        cout << "Locker Required: " << locker_required << endl;
+        cout << "Lounge Access: " << getLoungeAccess() << endl;
+        cout << "Food Coupon: " << getFoodCouponStatus() << endl;
+        cout << "Visitor Category: " << getVisitorCategory() << endl;    
+        cout << "Reminder: Please arrive 30 minutes early!" << endl;
+        cout << "******************************************************" << endl;
+    }
+};
 int main()
 {
     //Practice 97: Student ID Card System
@@ -154,13 +275,67 @@ int main()
 
     //Practice 99: Smart Hospital Patient Management System
     Patient patient;
+    string name;
+    string gender;
+    string disease;
+    string doctor;
+    int age;
+    int room;
+    int days;
+    double bill;
     cout << "Enter patient name: ";
+    getline(cin, name);
     cout << "Enter age: ";
+    cin >> age;
+    cin.ignore();
     cout << "Enter gender: ";
+    getline(cin, gender);
     cout << "Enter disease: ";
+    getline(cin, disease);
     cout << "Enter doctor name: ";
+    getline(cin, doctor);
     cout << "Enter room number: ";
+    cin >> room;
     cout << "Enter days admitted: ";
+    cin >> days;
     cout << "Enter bill amount: ";
+    cin >> bill;
+    patient.setAge(age);
+    patient.setGender(gender);
+    pateient.setPatientDetails(name, disease, doctor, room, days, bill);
     patient.displayRecord();
+
+    //Practice 100: Adventure Theme Park Premium Pass System
+    PremiumVisitor visitor;
+    string visitor_name;
+    string city;
+    string pass;
+    string locker;
+    int id;
+    int rides;
+    int guests;
+    double spending;
+    cout << "Enter visitor name: ";
+    getline(cin, visitor_name);
+    cout << "Enter visitor ID: ";
+    cin >> id;
+    cin.ignore();
+    cout << "Enter city: ";
+    getline(cin, city);
+    cout << "Enter pass type: ";
+    getline(cin, pass);
+    cout << "Enter number of rides selected: ";
+    cin >> rides;
+    cout << "Enter number of guests: ";
+    cin >> guests;
+    cout << "Enter total spending: ";
+    cin >> spending;
+    cin.ignore();
+    cout << "Enter locker required (Yes/No): ";
+    getline(cin, locker);
+    visitor.setVisitor(id);
+    visitor.setCity(city);
+    visitor.setPremiumDetails(name, pass, rides, guests, spending, locker);
+    visitor.displayPremiumPass();
+    return 0;
 }
